@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Pokedex.Tabs"
+             xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+            BarBackgroundColor="IndianRed"
+            SelectedTabColor="White">
+    <ContentPage BackgroundColor="DarkRed" Title="Home">
+        <Grid>
+            <Image
+        x:Name="backgroundImage"
+        Opacity="0.5"
+        Source="pokeball1.png"
+        Aspect= "AspectFill"
+        HorizontalOptions="Start"/>
+        </Grid>
+    </ContentPage>
+    <ContentPage BackgroundColor="DarkRed" Title="Search">
+
+    </ContentPage>
+</TabbedPage>
