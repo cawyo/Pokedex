@@ -6,6 +6,8 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new NavigationPage(new Tabs());
-	}
+        MainPage = new NavigationPage(new Tabs());
+
+        NavigationPage.SetHasNavigationBar(this, false);
+    }
 }
