@@ -62,7 +62,8 @@
                        TextColor="Grey"
                        PlaceholderColor="White"
                        FontSize="40"
-                       HorizontalOptions="Center"/>
+                       HorizontalOptions="Center"
+                       TextTransform="Lowercase"/>
             </StackLayout>
             </StackLayout>
         </Grid>

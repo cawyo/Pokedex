@@ -1,14 +1,19 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Converters;
 
 namespace Pokedex.Models
 {
     public class Pokemon
     {
-        public string Name { set; get; }
-        public string Url { set; get; }
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("url")]
+        public Uri Url { get; set; }
     }
 }
