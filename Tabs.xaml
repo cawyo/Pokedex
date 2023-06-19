@@ -27,21 +27,27 @@
                     Clicked="OnImageButtonClicked"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
-                    MaximumHeightRequest="200" >
+                    MaximumHeightRequest="300"
+                    CornerRadius="20"
+                    BackgroundColor="DarkRed">
             </ImageButton>
 
             <ImageButton Source="charm.png"
                     Clicked="OnImageButtonClicked"
                     HorizontalOptions="End"
                     VerticalOptions="Center"
-                    MaximumHeightRequest="200" >
+                    MaximumHeightRequest="300"
+                    CornerRadius="20"
+                    BackgroundColor="DarkRed">
             </ImageButton>
 
             <ImageButton Source="bulb.png"
                     Clicked="OnImageButtonClicked"
                     HorizontalOptions="Start"
                     VerticalOptions="Center"
-                    MaximumHeightRequest="200" >
+                    MaximumHeightRequest="300"
+                    CornerRadius="20"
+                    BackgroundColor="DarkRed" >
             </ImageButton>
             
         </Grid>
@@ -58,13 +64,16 @@
                        FontSize="40"
                        Margin="500,0,0,0"/>
                 <Entry Placeholder="Digite o nome do pokémon aqui"
+                       x:Name="SearchPokemon"
                        FontAttributes="Bold"
                        TextColor="Grey"
                        PlaceholderColor="White"
                        FontSize="40"
                        HorizontalOptions="Center"
                        TextTransform="Lowercase"/>
-            </StackLayout>
+                    <Button Text="Pesquisar" Clicked="OnImageButtonClicked"
+                            BackgroundColor="DarkBlue"/>
+                </StackLayout>
             </StackLayout>
         </Grid>
     </ContentPage>
