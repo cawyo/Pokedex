@@ -11,7 +11,7 @@
 
             <Image
         x:Name="backgroundImage"
-        Opacity="0.5"
+        Opacity="0.7"
         Source="pokeball1.png"
         Aspect= "AspectFit"/>
 
