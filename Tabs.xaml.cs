@@ -22,6 +22,17 @@ public partial class Tabs : TabbedPage
         var repository = new PokeRepository("Server=SNCCHLAB03F09\\TEW_SQLEXPRESS;Database=POKEDATA;Integrated Security=True;");
         List<Pokemon> pokes = repository.GetAllPokemon();
 
+        // Clear existing rows and columns
+        buttonGrid.RowDefinitions.Clear();
+        buttonGrid.ColumnDefinitions.Clear();
+
+        // Define the number of columns
+        for (int i = 0; i < 3; i++)
+        {
+            buttonGrid.ColumnDefinitions.Add(new ColumnDefinition());
+        }
+
+
         int row = 0;
         int col = 0;
 
@@ -31,11 +42,13 @@ public partial class Tabs : TabbedPage
             {
 
                 Text = pokemon.Nome,
-                MaximumHeightRequest = 100,
-                MaximumWidthRequest = 100,
+                MaximumHeightRequest = 150,
+                MaximumWidthRequest = 150,
                 CornerRadius = 20
             };
 
+            // Set row and column definitions dynamically
+            buttonGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(200) });
             Grid.SetRow(button, row);
             Grid.SetColumn(button, col);
 

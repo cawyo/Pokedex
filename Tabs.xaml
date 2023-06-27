@@ -4,52 +4,30 @@
              x:Class="Pokedex.Tabs"
              xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
             BarBackgroundColor="IndianRed"
-            SelectedTabColor="White"
+            SelectedTabColor="Transparent"
             Shell.NavBarIsVisible="false">
-    <ContentPage BackgroundColor="DarkRed" IconImageSource="pokeball2.png">
-        
-        <Grid x:Name="buttonGrid">
+    <ContentPage BackgroundColor="DarkRed" IconImageSource="pokeball2.png" >
+        <Grid>
+
             <Image
         x:Name="backgroundImage"
         Opacity="0.5"
         Source="pokeball1.png"
-        Aspect= "AspectFill"
-        HorizontalOptions="Start"/>
-            <Label Text="POKÉDEX"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Start"
-                   FontSize="40"
-                   FontAttributes="Bold"
-                   TextColor="Pink"
-                   Margin="0,100,0,0"/>
+        Aspect= "AspectFit"/>
 
-            <!--<ImageButton Source="squirt.png"
-                    Clicked="OnImageButtonClicked"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"
-                    MaximumHeightRequest="300"
-                    CornerRadius="20"
-                    BackgroundColor="DarkRed">
-            </ImageButton>
-
-            <ImageButton Source="charm.png"
-                    Clicked="OnImageButtonClicked"
-                    HorizontalOptions="End"
-                    VerticalOptions="Center"
-                    MaximumHeightRequest="300"
-                    CornerRadius="20"
-                    BackgroundColor="DarkRed">
-            </ImageButton>
-
-            <ImageButton Source="bulb.png"
-                    Clicked="OnImageButtonClicked"
-                    HorizontalOptions="Start"
-                    VerticalOptions="Center"
-                    MaximumHeightRequest="300"
-                    CornerRadius="20"
-                    BackgroundColor="DarkRed" >
-            </ImageButton>-->
-            
+            <Grid>
+                <ScrollView>
+                    <StackLayout>
+                        <Grid x:Name="buttonGrid" Margin="30">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                    </StackLayout>
+                </ScrollView>
+            </Grid>
         </Grid>
     </ContentPage>
     <ContentPage BackgroundColor="DarkRed" IconImageSource="search.png">

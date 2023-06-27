@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Pokedex.infopoke"
              Title="infopoke"
-             BackgroundColor="DarkRed">
+             BackgroundColor="DarkRed"
+             Shell.NavBarIsVisible="false">
     <Grid RowDefinitions="80,auto">
         <StackLayout Grid.Row="1">
             <Grid>
