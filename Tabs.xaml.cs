@@ -1,42 +1,58 @@
-using Newtonsoft.Json;
 using Pokedex.Models;
-using Newtonsoft.Json.Converters;
 
 namespace Pokedex;
 	
 public partial class Tabs : TabbedPage
 {
-    int clickTotal;
-    public string Name;
-    public string Url;
-    public string Next;
-    public string Previous;
 	public Tabs()
 	{
 		InitializeComponent();
-        Url = "https://pokeapi.co/api/v2/pokemon/";
-        _ = GetPokemon(Url);
 
     }
-    public async Task<bool> GetPokemon(string s)
+
+    protected override void OnAppearing()
     {
-        HttpClient http = new HttpClient();
-        var response = await http.GetAsync(s);
-        if (response.IsSuccessStatusCode)
-        {
-            var respString = await response.Content.ReadAsStringAsync();
-            var json_s = JsonConvert.DeserializeObject<PokemonApiModel>(respString);
-        }
-        else
-        {
+        base.OnAppearing();
 
-        }
-
-        return true;
+        GenerateButtons();
     }
 
-    void OnImageButtonClicked(object sender, EventArgs e)
+    private void GenerateButtons()
     {
-        Navigation.PushAsync(new infopoke());
+        var repository = new PokeRepository("Server=SNCCHLAB03F09\\TEW_SQLEXPRESS;Database=POKEDATA;Integrated Security=True;");
+        List<Pokemon> pokes = repository.GetAllPokemon();
+
+        int row = 0;
+        int col = 0;
+
+        foreach (Pokemon pokemon in pokes)
+        {
+            Button button = new Button
+            {
+
+                Text = pokemon.Nome,
+                MaximumHeightRequest = 100,
+                MaximumWidthRequest = 100,
+                CornerRadius = 20
+            };
+
+            Grid.SetRow(button, row);
+            Grid.SetColumn(button, col);
+
+            // Set an event handler to navigate to a new page
+            button.Clicked += async (sender, args) =>
+            {
+                await Navigation.PushAsync(new infopoke(pokemon));
+            };
+
+            buttonGrid.Children.Add(button);
+
+            col++;
+            if (col == 3)
+            {
+                col = 0;
+                row++;
+            }
+        }
     }
 }

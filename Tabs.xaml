@@ -6,9 +6,9 @@
             BarBackgroundColor="IndianRed"
             SelectedTabColor="White"
             Shell.NavBarIsVisible="false">
-    <ContentPage BackgroundColor="DarkRed" Title="Home">
+    <ContentPage BackgroundColor="DarkRed" IconImageSource="pokeball2.png">
         
-        <Grid>
+        <Grid x:Name="buttonGrid">
             <Image
         x:Name="backgroundImage"
         Opacity="0.5"
@@ -23,7 +23,7 @@
                    TextColor="Pink"
                    Margin="0,100,0,0"/>
 
-            <ImageButton Source="squirt.png"
+            <!--<ImageButton Source="squirt.png"
                     Clicked="OnImageButtonClicked"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
@@ -48,11 +48,11 @@
                     MaximumHeightRequest="300"
                     CornerRadius="20"
                     BackgroundColor="DarkRed" >
-            </ImageButton>
+            </ImageButton>-->
             
         </Grid>
     </ContentPage>
-    <ContentPage BackgroundColor="DarkRed" Title="Search">
+    <ContentPage BackgroundColor="DarkRed" IconImageSource="search.png">
         <Grid RowDefinitions="80,auto">
             <StackLayout Grid.Row="1">
             <StackLayout Orientation="Horizontal">
@@ -71,7 +71,7 @@
                        FontSize="40"
                        HorizontalOptions="Center"
                        TextTransform="Lowercase"/>
-                    <Button Text="Pesquisar" Clicked="OnImageButtonClicked"
+                    <Button Text="Pesquisar" 
                             BackgroundColor="DarkBlue"/>
                 </StackLayout>
             </StackLayout>
