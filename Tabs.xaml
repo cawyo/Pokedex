@@ -10,10 +10,17 @@
         <Grid>
 
             <Image
-        x:Name="backgroundImage"
-        Opacity="0.7"
-        Source="pokeball1.png"
-        Aspect= "AspectFit"/>
+            x:Name="backgroundImage"
+            Opacity="0.7"
+            Source="pokeball1.png"
+            Aspect= "AspectFit"/>
+
+            <Image
+            x:Name="logoImage"
+            Source="logo.png"
+            Aspect="AspectFit"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"/>
 
             <Grid>
                 <ScrollView>

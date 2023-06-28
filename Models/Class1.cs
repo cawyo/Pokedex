@@ -11,11 +11,14 @@ namespace Pokedex.Models
         public string Nome { get; set; }
         public double Altura { get; set; }
         public double Peso { get; set; }
+        public string Tipo1 { get; set; }
+        public string Tipo2 { get; set; }
+        public string Imgurl { get; set;}
     }
     public class PokeRepository
     {
         private readonly string connectionString;
-        private string conect = "Server=SNCCHLAB03F09\\TEW_SQLEXPRESS;Database=POKEDATA; trusted_connection=true; trustServerCertificate=true;";
+
 
         public PokeRepository(string connectionString)
         {
@@ -24,7 +27,7 @@ namespace Pokedex.Models
 
         public List<Pokemon> GetAllPokemon()
         {
-            using (var connection = new SqlConnection(conect))
+            using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -41,7 +44,7 @@ namespace Pokedex.Models
             {
                 connection.Open();
 
-                var query = "INSERT INTO Pokemon (nome, altura, peso) VALUES (@nome, @altura, @peso)";
+                var query = "INSERT INTO Pokemon (nome, altura, peso, tipo1, tipo2, imgurl) VALUES (@nome, @altura, @peso, @tipo1, @tipo2, @imgurl)";
                 connection.Execute(query, pokemon);
             }
         }

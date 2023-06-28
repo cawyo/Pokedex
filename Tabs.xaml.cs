@@ -19,7 +19,7 @@ public partial class Tabs : TabbedPage
 
     private void GenerateButtons()
     {
-        var repository = new PokeRepository("Server=SNCCHLAB03F09\\TEW_SQLEXPRESS;Database=POKEDATA;Integrated Security=True;");
+        var repository = new PokeRepository("Server=MP-CONSULTORIA;Database=POKEDATA;trustServerCertificate=true;trusted_connection=true;");
         List<Pokemon> pokes = repository.GetAllPokemon();
 
         // Clear existing rows and columns
@@ -38,27 +38,29 @@ public partial class Tabs : TabbedPage
 
         foreach (Pokemon pokemon in pokes)
         {
-            Button button = new Button
+            ImageButton imageButton = new ImageButton
             {
-
-                Text = pokemon.Nome,
+                Source = pokemon.Imgurl,
+                BackgroundColor = Color.FromArgb("#FF4F64"), // Pinkish red color
+                Padding = new Thickness(0),
+                CornerRadius = 20,
+                Aspect = Aspect.AspectFill,
                 MaximumHeightRequest = 150,
-                MaximumWidthRequest = 150,
-                CornerRadius = 20
+                MaximumWidthRequest = 150
             };
 
             // Set row and column definitions dynamically
             buttonGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(200) });
-            Grid.SetRow(button, row);
-            Grid.SetColumn(button, col);
+            Grid.SetRow(imageButton, row);
+            Grid.SetColumn(imageButton, col);
 
             // Set an event handler to navigate to a new page
-            button.Clicked += async (sender, args) =>
+            imageButton.Clicked += async (sender, args) =>
             {
                 await Navigation.PushAsync(new infopoke(pokemon));
             };
 
-            buttonGrid.Children.Add(button);
+            buttonGrid.Children.Add(imageButton);
 
             col++;
             if (col == 3)
