@@ -6,6 +6,8 @@
             BarBackgroundColor="IndianRed"
             SelectedTabColor="Transparent"
             Shell.NavBarIsVisible="false">
+    
+    
     <ContentPage BackgroundColor="DarkRed" IconImageSource="pokeball2.png" >
         <Grid>
 
@@ -37,29 +39,40 @@
             </Grid>
         </Grid>
     </ContentPage>
+    
+    
     <ContentPage BackgroundColor="DarkRed" IconImageSource="search.png">
         <Grid RowDefinitions="80,auto">
+            
             <StackLayout Grid.Row="1">
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Pesquisa:"
-                       TextColor="White"
-                       FontAttributes="Bold"
-                       VerticalOptions="Center"
-                       HorizontalOptions="Center"
-                       FontSize="40"
-                       Margin="500,0,0,0"/>
-                <Entry Placeholder="Digite o nome do pokémon aqui"
-                       x:Name="SearchPokemon"
-                       FontAttributes="Bold"
-                       TextColor="Grey"
-                       PlaceholderColor="White"
-                       FontSize="40"
-                       HorizontalOptions="Center"
-                       TextTransform="Lowercase"/>
-                    <Button Text="Pesquisar" 
-                            BackgroundColor="DarkBlue"/>
-                </StackLayout>
+                <Frame
+                Background="#241819">
+                    <StackLayout Orientation="Horizontal">
+                    <Label Text="Pesquisa:"
+                           TextColor="White"
+                           FontAttributes="Bold"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Start"
+                           FontSize="40"
+                           Margin="500,0,0,0"
+                           />
+                    <Entry Placeholder="Digite o nome do pokémon aqui"
+                           x:Name="SearchPokemon"
+                           FontAttributes="Bold"
+                           TextColor="Grey"
+                           PlaceholderColor="White"
+                           FontSize="40"
+                           HorizontalOptions="Start"/>
+                        <Button Text="Pesquisar"
+                                Clicked="OnSearchButtonClicked"
+                                BackgroundColor="Red"/>
+                
+                    </StackLayout>
+                </Frame>
             </StackLayout>
         </Grid>
     </ContentPage>
+    
+    
+    
 </TabbedPage>

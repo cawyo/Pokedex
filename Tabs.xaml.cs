@@ -1,4 +1,7 @@
 using Pokedex.Models;
+using System.Collections.Generic;
+using System.Linq;
+
 
 namespace Pokedex;
 	
@@ -41,7 +44,7 @@ public partial class Tabs : TabbedPage
             ImageButton imageButton = new ImageButton
             {
                 Source = pokemon.Imgurl,
-                BackgroundColor = Color.FromArgb("#FF4F64"), // Pinkish red color
+                BackgroundColor = Color.FromArgb("#f2d5d5"), // Pinkish red color
                 Padding = new Thickness(0),
                 CornerRadius = 20,
                 Aspect = Aspect.AspectFill,
@@ -70,4 +73,16 @@ public partial class Tabs : TabbedPage
             }
         }
     }
+
+
+        private async void OnSearchButtonClicked(object sender, EventArgs e)
+        {
+            string searchTerm = SearchPokemon.Text.ToLower();
+
+            var repository = new PokeRepository("Server=MP-CONSULTORIA;Database=POKEDATA;trustServerCertificate=true;trusted_connection=true;");
+            List<Pokemon> searchResults = repository.GetAllPokemon().Where(p => p.Nome.ToLower().Contains(searchTerm)).ToList();
+
+            // Navigate to the search results page and pass the search results
+            await Navigation.PushAsync(new SearchResults(searchResults));
+        }
 }

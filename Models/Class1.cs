@@ -14,6 +14,9 @@ namespace Pokedex.Models
         public string Tipo1 { get; set; }
         public string Tipo2 { get; set; }
         public string Imgurl { get; set;}
+
+        public string AlturaFormat => $"{Altura} M";
+        public string PesoFormat => $"{Peso} Kg";
     }
     public class PokeRepository
     {
@@ -35,6 +38,7 @@ namespace Pokedex.Models
                 var pokemon = connection.Query<Pokemon>(query).AsList();
 
                 return pokemon;
+
             }
         }
 
@@ -48,5 +52,7 @@ namespace Pokedex.Models
                 connection.Execute(query, pokemon);
             }
         }
+
     }
+
 }

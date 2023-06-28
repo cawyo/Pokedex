@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Pokedex.SearchResults"
+             BackgroundColor="DarkRed">
+    <Grid>
+
+        <Image
+            x:Name="backgroundImage"
+            Opacity="0.7"
+            Source="pokeball1.png"
+            Aspect= "AspectFit"/>
+
+        <Image
+            x:Name="logoImage"
+            Source="logo.png"
+            Aspect="AspectFit"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"/>
+
+        <Grid>
+            <ScrollView>
+                <StackLayout>
+                    <Grid x:Name="buttonGrid" Margin="30">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </Grid>
+</ContentPage>
