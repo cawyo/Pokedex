@@ -11,11 +11,9 @@ namespace Pokedex
         {
             InitializeComponent();
 
-            // Clear existing rows and columns
             buttonGrid.RowDefinitions.Clear();
             buttonGrid.ColumnDefinitions.Clear();
 
-            // Define the number of columns
             for (int i = 0; i < 3; i++)
             {
                 buttonGrid.ColumnDefinitions.Add(new ColumnDefinition());
@@ -30,7 +28,7 @@ namespace Pokedex
                 ImageButton imageButton = new ImageButton
                 {
                     Source = pokemon.Imgurl,
-                    BackgroundColor = Color.FromArgb("#f2d5d5"), // Pinkish red color
+                    BackgroundColor = Color.FromArgb("#f2d5d5"),
                     Padding = new Thickness(0),
                     CornerRadius = 20,
                     Aspect = Aspect.AspectFill,
@@ -38,12 +36,12 @@ namespace Pokedex
                     MaximumWidthRequest = 150
                 };
 
-                // Set row and column definitions dynamically
+                
                 buttonGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(200) });
                 Grid.SetRow(imageButton, row);
                 Grid.SetColumn(imageButton, col);
 
-                // Set an event handler to navigate to a new page
+                
                 imageButton.Clicked += async (sender, args) =>
                 {
                     await Navigation.PushAsync(new infopoke(pokemon));

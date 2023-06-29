@@ -22,14 +22,12 @@ public partial class Tabs : TabbedPage
 
     private void GenerateButtons()
     {
-        var repository = new PokeRepository("Server=MP-CONSULTORIA;Database=POKEDATA;trustServerCertificate=true;trusted_connection=true;");
+        var repository = new PokeRepository("Server=MP-CONSULTORIA;Database=POKEDATA;trustServerCertificate=true;trusted_connection=true;"); //!ALTERE O SERVER AQUI!
         List<Pokemon> pokes = repository.GetAllPokemon();
 
-        // Clear existing rows and columns
         buttonGrid.RowDefinitions.Clear();
         buttonGrid.ColumnDefinitions.Clear();
 
-        // Define the number of columns
         for (int i = 0; i < 3; i++)
         {
             buttonGrid.ColumnDefinitions.Add(new ColumnDefinition());
@@ -44,7 +42,7 @@ public partial class Tabs : TabbedPage
             ImageButton imageButton = new ImageButton
             {
                 Source = pokemon.Imgurl,
-                BackgroundColor = Color.FromArgb("#f2d5d5"), // Pinkish red color
+                BackgroundColor = Color.FromArgb("#f2d5d5"),
                 Padding = new Thickness(0),
                 CornerRadius = 20,
                 Aspect = Aspect.AspectFill,
@@ -52,12 +50,12 @@ public partial class Tabs : TabbedPage
                 MaximumWidthRequest = 150
             };
 
-            // Set row and column definitions dynamically
+
             buttonGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(200) });
             Grid.SetRow(imageButton, row);
             Grid.SetColumn(imageButton, col);
 
-            // Set an event handler to navigate to a new page
+
             imageButton.Clicked += async (sender, args) =>
             {
                 await Navigation.PushAsync(new infopoke(pokemon));
@@ -79,10 +77,10 @@ public partial class Tabs : TabbedPage
         {
             string searchTerm = SearchPokemon.Text.ToLower();
 
-            var repository = new PokeRepository("Server=MP-CONSULTORIA;Database=POKEDATA;trustServerCertificate=true;trusted_connection=true;");
+            var repository = new PokeRepository("Server=;Database=POKEDATA;trustServerCertificate=true;trusted_connection=true;"); //!ALTERE O SERVER AQUI!
             List<Pokemon> searchResults = repository.GetAllPokemon().Where(p => p.Nome.ToLower().Contains(searchTerm)).ToList();
 
-            // Navigate to the search results page and pass the search results
+
             await Navigation.PushAsync(new SearchResults(searchResults));
         }
 }

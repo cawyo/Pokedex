@@ -53,6 +53,28 @@ namespace Pokedex.Models
             }
         }
 
+        public void UpdatePokemon(Pokemon pokemon)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                var query = "UPDATE Pokemon SET nome = @Nome, altura = @Altura, peso = @Peso, tipo1 = @Tipo1, tipo2 = @Tipo2, imgurl = @Imgurl WHERE nome = @Nome";
+                connection.Execute(query, pokemon);
+            }
+        }
+
+        public void DeletePokemon(string nome)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                var query = "DELETE FROM Pokemon WHERE nome = @Nome";
+                connection.Execute(query, new { Nome = nome });
+            }
+        }
+
     }
 
 }
